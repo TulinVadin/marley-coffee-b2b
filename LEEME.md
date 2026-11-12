@@ -43,7 +43,7 @@
 - `?utm_source=linkedin|meta|google` registra el origen del lead.
 
 ## Fotos pendientes
-La franja de WhatsApp usa la foto del mesón (incrustada en `index.html`; originales en `imagenes/meson-800.webp` y `imagenes/meson-1600.webp`). Productos y máquinas usan ilustraciones. Para poner fotos, completa `PRODUCT_IMG` (por id de producto) y `MACHINE_IMG` (por id de máquina) en `index.html` con la ruta de cada imagen.
+La franja de WhatsApp usa la foto del mesón (incrustada en `index.html`; originales en `imagenes/meson-800.webp` y `imagenes/meson-1600.webp`). Las cinco máquinas (KLYO, Coffee Center, Perla, Espresso 2 grupos y Tótem autoservicio) usan sus fotos, incrustadas en `MACHINE_IMG` de `index.html`; las versiones livianas están en `imagenes/maquinas/` y los originales en `capturas/imagenes marley/`. Los productos siguen con ilustraciones (para usar fotos, completa `PRODUCT_IMG` por id de producto).
 
 ## Antes de publicar
 Quitar el botón «Vistas del prototipo» y el botón «Completar con datos de prueba»,
