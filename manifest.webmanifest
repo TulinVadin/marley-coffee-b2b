@@ -1,0 +1,35 @@
+{
+  "name": "Portal B2B Marley Coffee",
+  "short_name": "Marley B2B",
+  "description": "Repón café, compra el catálogo completo, paga con factura y capacita a tu equipo.",
+  "lang": "es-CL",
+  "start_url": "./index.html#/portal/inicio",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#1A1A1A",
+  "theme_color": "#1A1A1A",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Repetir pedido",
+      "url": "./index.html#/portal/reposicion"
+    },
+    {
+      "name": "Mis facturas",
+      "url": "./index.html#/portal/pedidos"
+    }
+  ]
+}
