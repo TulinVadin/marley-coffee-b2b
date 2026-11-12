@@ -21,6 +21,8 @@
 - La franja «¿Todavía pides tu café por WhatsApp?» reemplaza la cita atribuida a una cafetería del piloto.
 - **Formulario en dos pasos**: el paso 1 (nombre, correo, teléfono, tipo de negocio, región) registra la solicitud de cotización como lead, la asigna directo a Comercial (+25 en lead scoring) y avisa a marketing. El paso 2 (RUT, razón social, tamaño, máquina, crédito, clave) completa el mismo lead y crea la cuenta. «Ahora no, prefiero que me llamen» cierra sin perder el lead.
 - «Conveniencia» pasa a «Estaciones de servicio y conveniencia» en los filtros.
+- **Cinturón de confianza** bajo la primera pantalla (recomendación del profesor), con cifras del brief: 14 años en Chile (desde 2012), cerca de 4.000 máquinas, 3.390 puntos activos, N.º 1 en café en grano en supermercados (FNE), cobertura de la macrozona norte a la zona centro-sur y tipos de clientes. No se muestran logos porque el brief no nombra clientes reales.
+- **Boletín Marley B2B** (antes del pie de página) para nurturing de quienes aún no cotizan: correo, tipo de negocio y consentimiento. Cada suscripción entra a la vista marketing como lead de contenidos con la etiqueta «Boletín», y se suma la automatización «Boletín mensual B2B».
 
 **Portal**
 - Inicio del cliente: la reposición sugerida va primero; los cuatro recuadros de texto pasan a una tarjeta «Tu consumo» con indicadores e histograma de gasto de 6 meses. Las cuentas nuevas ven una barra de avance de sus tres primeros pasos.
