@@ -29,6 +29,12 @@
 - Preguntas frecuentes (cliente, marketing y administrador) en tarjetas con más espacio.
 - Marketing y administrador: cada tarjeta lleva un color según su tema (verde ventas y metas, amarillo leads y campañas, rojo alertas, café satisfacción). Rendimiento por canal, leads por origen, resultados por plataforma y evolución mensual se muestran como gráficos, con la tabla detallada plegable. Las automatizaciones muestran apertura y conversión como barras. En celular, la tabla de metas y la de presupuesto se leen como tarjetas.
 
+## Novedades de la v5.1 (sugerencias del profesor, 13-11-2026)
+- **Calculadora de consumo y costo** (sección «¿Cuánto café necesitas?»), con campos según el tipo de negocio: oficina (personas del equipo), cafetería o restaurante y panadería (clientes al día y % que pide café) y estación de servicio (clientes, % que compra café y latas RTD). Muestra el costo neto mensual, el detalle de insumos y la máquina sugerida. Supuestos: 8 g por taza y precios de lista. Dejar el correo suma +10 en lead scoring (nueva señal «calculadora»); «Cotizar con este resultado» lleva al paso 1 con el rubro y la máquina cargados.
+- **Celular más corto**: primera pantalla compacta (las máquinas se ven al abrir), cinturón de confianza en pocas líneas, beneficios y modalidades en un solo contenedor, productos en carrusel, formulario compacto y los pasos de «Cómo empiezas» en un solo contenedor. La landing de oficinas pasó de 9.183 a 7.150 px de alto en celular, incluyendo la calculadora.
+- **Aviso de cookies** con consentimiento por categoría (necesarias, medición y publicidad), revocable desde «Configurar cookies» al pie.
+- **Política de privacidad actualizada a la Ley N° 21.719** (vigente desde el 1-12-2026): responsable Comercial Dicalla SpA, bases legales, decisiones automatizadas (lead scoring), transferencias internacionales, plazos de respuesta y reclamo ante la Agencia de Protección de Datos Personales.
+
 ## Usuarios de prueba
 - Clientes: el RUT de cada cuenta demo (se ven en la pantalla de ingreso).
 - Marketing: `marketing@marleycoffee.cl`

@@ -1239,12 +1239,6 @@ dialog.sheet.promo-dlg .sheet-inner { padding: 0; }
   .trust-note { grid-column: 1 / -1; }
 }
 
-@media (max-width: 899px) {
-  .route { flex-direction: column; overflow: visible; gap: 8px; }
-  .route li { padding: 0 0 0 22px; flex: none; }
-  .route li::before { top: 4px; }
-  .route li::after { top: 16px; left: 4px; right: auto; width: 2px; height: 16px; background: rgba(255,209,0,.5); }
-}
 
 /* ---- Boletín (nurturing) ---- */
 .news-band { background: var(--green); color: #fff; }
@@ -1263,6 +1257,144 @@ dialog.sheet.promo-dlg .sheet-inner { padding: 0; }
 @media (min-width: 900px) {
   .news-in { grid-template-columns: 1fr 1fr; align-items: center; gap: 48px; padding: 64px 16px; }
   .news-fields { grid-template-columns: 1fr 1fr; }
+}
+
+/* ---- Calculadora de consumo y costo ---- */
+.calc { margin-top: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 14px; display: grid; gap: 14px; box-shadow: var(--shadow); }
+.calc-tabs { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; margin: 0 -14px; padding: 0 14px; }
+.calc-tabs::-webkit-scrollbar { display: none; }
+.calc-tab { flex: 0 0 auto; min-height: 38px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); font: 600 13.5px var(--font); cursor: pointer; }
+.calc-tab[aria-selected="true"] { background: var(--black); color: var(--yellow); border-color: var(--black); }
+.calc-form { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.calc-form .field label { font-size: 12.5px; }
+.calc-out { display: grid; gap: 10px; }
+.calc-total { display: grid; background: var(--black); color: #fff; border-radius: var(--r); padding: 12px 14px; }
+.calc-total span { font-size: 12.5px; color: rgba(255,255,255,.7); }
+.calc-total strong { font-size: 30px; color: var(--yellow); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.calc-total small { font-size: 12.5px; color: rgba(255,255,255,.75); }
+.calc-lines { list-style: none; display: grid; gap: 6px; font-size: 14px; }
+.calc-lines li { display: flex; justify-content: space-between; gap: 10px; padding-bottom: 6px; border-bottom: 1px solid var(--line-2); }
+.calc-lines b { font-variant-numeric: tabular-nums; }
+.calc-extra { font-size: 13px; color: var(--ink-2); }
+.calc-machine { display: flex; gap: 12px; align-items: center; padding: 8px; border-radius: var(--r); background: var(--brand-50); }
+.calc-machine img, .calc-machine > .icon { width: 56px; height: 56px; object-fit: contain; mix-blend-mode: multiply; flex-shrink: 0; }
+.calc-machine span { display: block; font-size: 11.5px; color: var(--ink-3); }
+.calc-machine strong { display: block; font-size: 15px; }
+.calc-machine small { font-size: 12px; color: var(--ink-3); }
+.calc-note { font-size: 11.5px; color: var(--ink-3); }
+.calc-lead { display: grid; gap: 8px; border-top: 1px dashed var(--line); padding-top: 12px; }
+.calc-lead[hidden] { display: none; }
+.calc-lead-h { font-size: 14px; font-weight: 700; }
+.calc-lead-row { display: grid; grid-template-columns: 1fr auto; gap: 8px; }
+.calc-lead .check span { font-size: 12.5px; }
+.calc-done { display: flex; gap: 10px; align-items: flex-start; padding: 12px; border-radius: var(--r); background: var(--ok-bg); font-size: 14px; }
+.calc-done .icon { width: 22px; height: 22px; color: var(--ok); flex-shrink: 0; }
+.calc-done > div { flex: 1; }
+@media (min-width: 900px) {
+  .calc { grid-template-columns: 1.1fr 1fr; gap: 18px 28px; padding: 22px; }
+  .calc-tabs { grid-column: 1 / -1; margin: 0; padding: 0; }
+  .calc-form { align-content: start; }
+  .calc-out { grid-column: 2; grid-row: 2 / span 3; }
+  .calc-lead, .calc-done { grid-column: 1; }
+}
+
+/* ---- Aviso de cookies ---- */
+.cookie-bar { position: fixed; left: 8px; right: 8px; bottom: calc(8px + env(safe-area-inset-bottom, 0px)); z-index: 60; }
+.cookie-bar[hidden] { display: none; }
+.cookie-in { max-width: 760px; margin: 0 auto; background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--shadow-lg); padding: 14px; display: grid; gap: 10px; }
+.cookie-in h2 { font-size: 15px; }
+.cookie-in p { font-size: 13px; color: var(--ink-2); margin-top: 2px; }
+.cookie-btns { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+.cookie-btns .btn { min-height: 40px; font-size: 13px; padding: 0 8px; }
+@media (min-width: 700px) { .cookie-in { grid-template-columns: 1fr auto; align-items: center; } .cookie-btns { display: flex; } }
+.ck-list { display: grid; gap: 8px; }
+.ck-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px; border: 1px solid var(--line); border-radius: var(--r); cursor: pointer; }
+.ck-row strong { display: block; font-size: 15px; }
+.ck-row small { font-size: 12.5px; color: var(--ink-3); }
+.ck-row input { width: 22px; height: 22px; accent-color: var(--black); flex-shrink: 0; }
+
+/* ---- Cómo empiezas: pasos en un solo contenedor ---- */
+.steps-one { list-style: none; counter-reset: s; margin-top: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 6px 14px; display: grid; }
+.steps-one li { counter-increment: s; display: grid; grid-template-columns: 26px auto 1fr; gap: 10px; align-items: center; padding: 9px 0; border-bottom: 1px solid var(--line-2); font-size: 14px; }
+.steps-one li:last-child { border-bottom: 0; }
+.steps-one li::before { content: counter(s); width: 26px; height: 26px; border-radius: 50%; background: var(--black); color: var(--yellow); font-weight: 700; font-size: 13px; display: grid; place-items: center; }
+.steps-one span { color: var(--ink-3); font-size: 13px; text-align: right; }
+@media (min-width: 900px) {
+  .steps-one { grid-template-columns: repeat(5, 1fr); padding: 16px; gap: 12px; }
+  .steps-one li { grid-template-columns: 26px 1fr; grid-template-rows: auto auto; border: 0; padding: 0; }
+  .steps-one li::before { grid-row: 1 / span 2; align-self: start; }
+  .steps-one span { text-align: left; grid-column: 2; }
+}
+
+/* ---- Celular: menos texto y menos desplazamiento ---- */
+@media (max-width: 599px) {
+  .l-section-wrap > .l-section, .l-section { padding-top: 30px; padding-bottom: 30px; }
+  .l-section h2, .register-copy h2 { font-size: 24px; }
+  .l-section .lede, .l-section > .lede { font-size: 15px; margin-top: 4px; }
+  .kicker { font-size: 11px; margin-bottom: 4px; }
+  /* Primera pantalla compacta: las máquinas aparecen antes */
+  .hero-in { padding: 18px 16px 6px; gap: 8px; }
+  .hero h1 { font-size: 28px; line-height: 1.05; }
+  .hero .lede { font-size: 15px; margin-top: 6px; }
+  .hero-ctas { margin-top: 12px; gap: 8px; }
+  .hero-ctas .btn { min-height: 44px; padding: 0 16px; font-size: 15px; }
+  .hero-proof { margin-top: 10px; font-size: 12.5px; gap: 4px 12px; }
+  .hero-media img { aspect-ratio: 390 / 330; object-position: center 88%; }
+  /* Cinturón de confianza en pocas líneas */
+  .trust-in { padding: 20px 16px; gap: 14px; }
+  .trust-stats { gap: 12px 10px; }
+  .trust-stats strong { font-size: 22px; }
+  .trust-stats span { font-size: 12px; }
+  .trust-h { display: inline; margin: 0 6px 0 0; font-size: 11px; }
+  .route, .client-types { display: inline; }
+  .route li, .client-types li { display: inline; padding: 0; border: 0; font-size: 12.5px; font-weight: 500; color: rgba(255,255,255,.88); }
+  .route li::before { display: none; }
+  .route li::after, .client-types li::after { content: ' · '; position: static; background: none; width: auto; height: auto; color: var(--yellow); }
+  .route li:last-child::after, .client-types li:last-child::after { content: ''; }
+  .trust-note { font-size: 10.5px; }
+  /* Beneficios en un solo contenedor, solo títulos */
+  .does.does-grid { gap: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 4px 6px; margin-top: 14px; }
+  .does.does-grid li { grid-template-columns: 30px 1fr; align-items: center; gap: 8px; padding: 9px 6px; border: 0; border-radius: 0; background: none; }
+  .does.does-grid .ico { width: 30px; height: 30px; border-radius: 8px; }
+  .does.does-grid .ico .icon { width: 16px; height: 16px; }
+  .does.does-grid h3 { font-size: 13.5px; margin: 0; }
+  .does.does-grid p { display: none; }
+  /* Comodato y arriendo en un contenedor */
+  .modes { gap: 0; margin-top: 14px; border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; }
+  .mode { border: 0; border-radius: 0; padding: 12px; }
+  .mode + .mode { border-left: 1px solid var(--line); }
+  .mode .mode-big { font-size: 16px; margin: 6px 0 2px; }
+  .mode p { font-size: 12.5px; }
+  .machine-rail { margin-top: 14px; }
+  .machine .machine-art:has(img) { height: 160px; }
+  .rail-hint { display: none; }
+  /* Productos en carrusel */
+  .products { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 10px; margin: 14px -16px 0; padding: 0 16px 6px; scroll-padding-inline: 16px; scrollbar-width: none; }
+  .products::-webkit-scrollbar { display: none; }
+  .prod { flex: 0 0 42%; scroll-snap-align: start; }
+  .prod p { display: none; }
+  .cat-chips { display: none; }
+  #catalogo .btn-dark { margin-top: 14px; width: 100%; }
+  /* Franja WhatsApp */
+  .wa-photo img { max-height: 210px; }
+  .wa-copy { padding: 22px 16px 30px; gap: 10px; }
+  .wa-band h2 { font-size: 28px; }
+  .wa-band p { font-size: 15px; }
+  /* Formulario compacto */
+  .register { gap: 12px; }
+  .reg-form { padding: 14px; gap: 10px; }
+  .reg-step { gap: 10px; }
+  .step-title { font-size: 17px; }
+  .reg-form .field label { font-size: 13px; }
+  .reg-form .center { display: none; }
+  /* Preguntas y boletín */
+  .faq.faq-cards { gap: 8px; }
+  .faq.faq-cards summary { padding: 14px 40px 14px 0; font-size: 15px; }
+  .news-in { padding: 30px 16px; gap: 14px; }
+  .news-copy h2 { font-size: 24px; }
+  .news-copy > p { font-size: 15px; }
+  .news-ticks { display: none; }
+  .calc-total strong { font-size: 26px; }
 }
 </style>
 </head>
@@ -1330,7 +1462,7 @@ dialog.sheet.promo-dlg .sheet-inner { padding: 0; }
         <button data-scroll="portal">Beneficios</button>
         <button data-scroll="maquinas">Máquinas</button>
         <button data-scroll="catalogo">Productos</button>
-        <button data-scroll="academy">Academy</button>
+        <button data-scroll="calculadora">Calculadora</button>
         <button data-scroll="faq">Preguntas</button>
       </nav>
       <div class="l-actions">
@@ -1409,7 +1541,7 @@ dialog.sheet.promo-dlg .sheet-inner { padding: 0; }
       <div class="l-section">
         <p class="kicker">Portal B2B</p>
         <h2 id="portal-title">Todo tu café en un solo lugar</h2>
-        <p class="lede">Pide, paga y sigue tus pedidos desde el celular o el computador.</p>
+        <p class="lede">Pide, paga y sigue tus pedidos desde el celular.</p>
         <ul class="does does-grid">
           <li><span class="ico"><svg class="icon"><use href="#i-repeat"/></svg></span><div><h3>Repite tu pedido</h3><p>Tu último pedido queda listo.</p></div></li>
           <li><span class="ico"><svg class="icon"><use href="#i-doc"/></svg></span><div><h3>Factura a tu RUT</h3><p>Webpay, transferencia o crédito.</p></div></li>
@@ -1426,21 +1558,47 @@ dialog.sheet.promo-dlg .sheet-inner { padding: 0; }
       <div class="l-section">
         <p class="kicker">Máquinas</p>
         <h2 id="maq-title">Elige la máquina para tu negocio</h2>
-        <p class="lede">Instalación, capacitación y soporte técnico incluidos.</p>
+        <p class="lede">Instalación, capacitación y soporte incluidos.</p>
         <div class="modes" role="list" aria-label="Modalidades">
           <div class="mode" role="listitem">
             <span class="mode-tag">Comodato</span>
             <p class="mode-big">$0 de arriendo</p>
-            <p>Pagas solo el café que consumes. Requiere un consumo mínimo mensual.</p>
+            <p>Pagas el café, con consumo mínimo mensual.</p>
           </div>
           <div class="mode" role="listitem">
             <span class="mode-tag dark">Arriendo</span>
             <p class="mode-big">Cuota fija</p>
-            <p>Una cuota mensual facturada en el portal. Sin consumo mínimo.</p>
+            <p>Sin consumo mínimo de café.</p>
           </div>
         </div>
         <div class="machines machine-rail" id="machine-list"></div>
-        <p class="rail-hint small muted" aria-hidden="true">Desliza para ver más máquinas →</p>
+        <p class="rail-hint small muted" aria-hidden="true">Desliza para ver más →</p>
+      </div>
+    </section>
+
+    <!-- 2b. CALCULADORA DE CONSUMO Y COSTO (rama B del mapa del viaje: evaluación) -->
+    <section class="l-section-wrap tone-cream" id="calculadora" aria-labelledby="calc-title">
+      <div class="l-section">
+        <p class="kicker">Calculadora</p>
+        <h2 id="calc-title">¿Cuánto café necesitas?</h2>
+        <p class="lede">Estima tu consumo y costo mensual en segundos.</p>
+        <div class="calc">
+          <div class="calc-tabs" id="calc-tabs" role="tablist" aria-label="Tipo de negocio"></div>
+          <form class="calc-form" id="calc-form" novalidate></form>
+          <div class="calc-out" id="calc-out" aria-live="polite"></div>
+          <form class="calc-lead" id="calc-lead" novalidate>
+            <p class="calc-lead-h">Recibe esta estimación en tu correo</p>
+            <div class="calc-lead-row">
+              <label class="sr-only" for="c-email">Correo de la empresa</label>
+              <input class="input" id="c-email" name="email" type="email" autocomplete="email" placeholder="correo@empresa.cl" aria-describedby="e-c-email">
+              <button class="btn btn-dark" type="submit">Enviar</button>
+            </div>
+            <label class="check"><input type="checkbox" id="c-optin" name="optin"> <span>Acepto que Marley Coffee me contacte por correo sobre esta estimación.</span></label>
+            <span class="field-error" id="e-c-email"></span>
+            <button class="btn btn-primary btn-block" type="button" data-action="calc-quote">Cotizar con este resultado</button>
+          </form>
+          <div class="calc-done" id="calc-done" role="status" hidden></div>
+        </div>
       </div>
     </section>
 
@@ -1449,7 +1607,7 @@ dialog.sheet.promo-dlg .sheet-inner { padding: 0; }
       <div class="l-section">
         <p class="kicker">Productos</p>
         <h2 id="cat-title">Productos para tu negocio</h2>
-        <p class="lede" id="cat-lede">Una muestra del catálogo. Al crear tu cuenta ves todos los productos con los precios de tu canal.</p>
+        <p class="lede" id="cat-lede">Con tu cuenta ves todo el catálogo y tus precios.</p>
         <div class="products" id="prod-list"></div>
         <div class="cat-chips" id="cat-tiles" aria-label="Categorías del catálogo"></div>
         <button class="btn btn-dark" data-scroll="registro">Ver catálogo completo con precios</button>
@@ -1466,7 +1624,7 @@ dialog.sheet.promo-dlg .sheet-inner { padding: 0; }
         <div class="wa-copy">
           <span class="wa-ico" aria-hidden="true"><svg class="icon"><use href="#i-wa"/></svg></span>
           <h2 id="wa-title">¿Todavía pides tu café por WhatsApp?</h2>
-          <p>Desde el portal repites tu pedido en pocos toques y ves cuándo llega.</p>
+          <p>En el portal repites tu pedido en segundos y ves cuándo llega.</p>
           <button class="btn btn-gold" data-scroll="registro">Cotizar gratis</button>
         </div>
       </div>
@@ -1478,11 +1636,7 @@ dialog.sheet.promo-dlg .sheet-inner { padding: 0; }
         <div class="register-copy">
           <p class="kicker">Cotización sin costo</p>
           <h2 id="reg-title">Cotiza en un minuto</h2>
-          <p class="lede">Déjanos tus datos y un ejecutivo te responde en un máximo de 24 horas hábiles. Después, si quieres, creas tu cuenta y entras al portal.</p>
-          <ol class="reg-steps-info">
-            <li><strong>Paso 1.</strong> Tus datos de contacto.</li>
-            <li><strong>Paso 2.</strong> Tu empresa y tu clave para entrar al portal.</li>
-          </ol>
+          <p class="lede">Un ejecutivo te responde en 24 h hábiles.</p>
         </div>
         <form class="reg-form" id="reg-form" novalidate data-step="1">
           <div class="stepper" aria-hidden="true"><span class="on" id="st-1">1. Contacto</span><span id="st-2">2. Tu cuenta</span></div>
@@ -1615,13 +1769,12 @@ dialog.sheet.promo-dlg .sheet-inner { padding: 0; }
       <div class="l-section">
         <p class="kicker">Cómo empiezas</p>
         <h2 id="acad-title">De la cotización a tu primer pedido</h2>
-        <p class="lede">Tu equipo aprende a usar el portal y a cuidar la máquina con Marley Academy: 9 cursos cortos con certificación.</p>
-        <ol class="journey journey-rail" aria-label="Cómo empiezas con Marley Coffee">
-          <li><h3>Cotizas</h3><p>Te respondemos en 24 h hábiles.</p></li>
-          <li><h3>Validamos</h3><p>Revisamos tu empresa en hasta 5 días hábiles.</p></li>
-          <li><h3>Instalamos</h3><p>Máquina lista, con QR de limpieza.</p></li>
-          <li><h3>Capacitas</h3><p>Tu equipo se certifica en Marley Academy.</p></li>
-          <li><h3>Repones</h3><p>Repites tu pedido desde el celular.</p></li>
+        <ol class="steps-one" aria-label="Cómo empiezas con Marley Coffee">
+          <li><b>Cotizas</b><span>Respuesta en 24 h</span></li>
+          <li><b>Validamos</b><span>Hasta 5 días hábiles</span></li>
+          <li><b>Instalamos</b><span>Con QR de limpieza</span></li>
+          <li><b>Capacitas</b><span>En Marley Academy</span></li>
+          <li><b>Repones</b><span>Desde el celular</span></li>
         </ol>
       </div>
     </section>
@@ -1641,7 +1794,7 @@ dialog.sheet.promo-dlg .sheet-inner { padding: 0; }
         <div class="news-copy">
           <p class="kicker">Boletín Marley B2B</p>
           <h2 id="news-title">¿Aún no es momento de cotizar?</h2>
-          <p>Recibe una vez al mes ideas para vender más café en tu negocio, novedades de temporada y cursos nuevos de Marley Academy.</p>
+          <p>Ideas para vender más café, temporada y cursos. Un correo al mes.</p>
           <ul class="news-ticks">
             <li>Un correo al mes</li>
             <li>Contenido según tu tipo de negocio</li>
@@ -1713,6 +1866,7 @@ dialog.sheet.promo-dlg .sheet-inner { padding: 0; }
     <div class="foot-legal">
       <span>© 2026 Marley Coffee Chile</span>
       <button type="button" data-action="nav" data-to="#/privacidad">Acceso a la información y políticas de privacidad</button>
+      <button type="button" data-action="cookie-settings">Configurar cookies</button>
     </div>
   </footer>
 
@@ -1836,6 +1990,21 @@ dialog.sheet.promo-dlg .sheet-inner { padding: 0; }
 </dialog>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- Aviso de cookies (Ley N° 21.719): consentimiento previo, por categoría y revocable -->
+<section class="cookie-bar" id="cookie-bar" role="region" aria-labelledby="ck-title" hidden>
+  <div class="cookie-in">
+    <div>
+      <h2 id="ck-title">Usamos cookies</h2>
+      <p>Las necesarias hacen funcionar el sitio. Las de medición y publicidad solo se activan si las aceptas. <button type="button" class="btn-link inline" data-action="nav" data-to="#/privacidad">Política de privacidad</button></p>
+    </div>
+    <div class="cookie-btns">
+      <button type="button" class="btn btn-ghost btn-sm" data-action="cookie-reject">Rechazar</button>
+      <button type="button" class="btn btn-ghost btn-sm" data-action="cookie-settings">Configurar</button>
+      <button type="button" class="btn btn-primary btn-sm" data-action="cookie-accept">Aceptar</button>
+    </div>
+  </div>
+</section>
 
 <script>
 'use strict';
@@ -2220,6 +2389,7 @@ const SIGNALS = [
   { k: 'rut', label: 'Registro completo con RUT de empresa', pts: 10, dim: 'Comportamiento' },
   { k: 'comodato', label: 'Revisa planes de comodato o fichas de máquinas', pts: 10, dim: 'Comportamiento' },
   { k: 'productos', label: 'Agrega productos al pedido', pts: 15, dim: 'Comportamiento' },
+  { k: 'calculadora', label: 'Usa la calculadora y deja su correo', pts: 10, dim: 'Comportamiento' },
   { k: 'instalacion', label: 'Solicita instalación de máquina u onboarding', pts: 25, dim: 'Comportamiento' },
   { k: 'inactivo', label: '30 días sin ingresar al portal', pts: -10, dim: 'Inactividad' },
 ];
@@ -2455,8 +2625,9 @@ function renderLanding(seg) {
   // Productos destacados: 6 del rubro (o uno por categoría en la página general), con ilustración
   const pick = seg ? PRODUCTS.filter((p) => p.rec.includes(seg)).slice(0, 6)
     : ['grano', 'molido', 'capsulas', 'rtd', 'insumos', 'accesorios'].map((ct) => PRODUCTS.find((p) => p.cat === ct)).filter(Boolean);
-  $('#cat-lede').textContent = seg ? `Lo que más piden ${SEGMENTS[seg].peers}. Al crear tu cuenta ves todo el catálogo con los precios de tu canal.`
-    : 'Una muestra del catálogo. Al crear tu cuenta ves todos los productos con los precios de tu canal.';
+  $('#cat-lede').textContent = seg ? `Lo que más piden ${SEGMENTS[seg].peers}. Con tu cuenta ves todo el catálogo.` : 'Con tu cuenta ves todo el catálogo y tus precios.';
+  state.calc = { ...(state.calc || {}), seg: seg || (state.calc && state.calc.seg) || 'ocs' };
+  renderCalcForm();
   $('#prod-list').innerHTML = pick.map((p) => `
     <article class="prod">
       <div class="prod-art cat-${p.cat}">${prodArt(p)}</div>
@@ -2500,6 +2671,114 @@ function prodArt(p) {
   };
   const kind = { grano: 'bag', molido: 'bag', capsulas: 'caps', rtd: 'can', insumos: 'box', accesorios: 'cup', pop: 'box' }[p.cat] || 'box';
   return `<svg viewBox="0 0 120 130" role="img" aria-label="${esc(p.name)}">${art[kind]}</svg>`;
+}
+
+/* ---------- Calculadora de consumo y costo (rama B del mapa del viaje) ----------
+   Supuestos declarados: 8 g de café por taza; precios netos de la lista base del catálogo; 1 vaso y 1 tapa por café para llevar.
+   El resultado se ve sin dejar datos. Dejar el correo suma +10 (calculadora); «Cotizar con este resultado» lleva al paso 1 (+25). */
+const G_PER_CUP = 8;
+const CALC = {
+  ocs: { label: 'Oficina', fields: [['people', 'Personas en la oficina', 30, 1, 2000], ['cups', 'Tazas por persona al día', 2, 1, 6], ['days', 'Días hábiles al mes', 21, 1, 31], ['format', 'Formato', 'grano', [['grano', 'Café en grano'], ['capsulas', 'Cápsulas']]]] },
+  horeca: { label: 'Cafetería o restaurante', fields: [['flow', 'Clientes al día', 150, 1, 5000], ['rate', '% que pide café', 50, 0, 100], ['days', 'Días abiertos al mes', 26, 1, 31], ['price', 'Precio por café ($)', 2500, 500, 20000]] },
+  panaderia: { label: 'Panadería', fields: [['flow', 'Clientes al día', 200, 1, 5000], ['rate', '% que compra café', 20, 0, 100], ['days', 'Días abiertos al mes', 26, 1, 31], ['togo', '% de cafés para llevar', 60, 0, 100]] },
+  conveniencia: { label: 'Estación de servicio', fields: [['flow', 'Clientes al día', 600, 1, 20000], ['rate', '% que compra café', 8, 0, 100], ['days', 'Días al mes', 30, 1, 31], ['rtd', 'Latas RTD al día', 12, 0, 2000]] },
+};
+function calcVals() {
+  const v = {};
+  $$('#calc-form [data-k]').forEach((el) => { v[el.dataset.k] = el.tagName === 'SELECT' ? el.value : Math.max(0, Number(el.value) || 0); });
+  return v;
+}
+function renderCalcForm() {
+  const seg = state.calc.seg, c = CALC[seg];
+  $('#calc-tabs').innerHTML = Object.entries(CALC).map(([k, x]) => `<button type="button" role="tab" class="calc-tab" aria-selected="${k === seg}" data-action="calc-seg" data-seg="${k}">${esc(x.label)}</button>`).join('');
+  $('#calc-form').innerHTML = c.fields.map(([k, label, def, a, b]) => Array.isArray(a)
+    ? `<div class="field"><label for="cf-${k}">${label}</label><select class="select" id="cf-${k}" data-k="${k}">${a.map(([val, t]) => `<option value="${val}" ${val === def ? 'selected' : ''}>${t}</option>`).join('')}</select></div>`
+    : `<div class="field"><label for="cf-${k}">${label}</label><input class="input" id="cf-${k}" data-k="${k}" type="number" inputmode="numeric" min="${a}" max="${b}" value="${def}"></div>`).join('');
+  renderCalcOut();
+}
+function calcResult(seg, v) {
+  const bean = PROD['ol-g1'], cap = PROD['ol-cap'], cup = PROD['vaso8'], lid = PROD['tapa8'], rtd = PROD['rtd-orig'];
+  const kgFor = (cups) => Math.ceil(cups * G_PER_CUP / 1000);
+  let cupsM = 0, lines = [], machine = 'perla', extra = '';
+  if (seg === 'ocs') {
+    cupsM = v.people * v.cups * v.days;
+    if (v.format === 'capsulas') { const n = Math.ceil(cupsM / 50); lines.push([`${n} ${n === 1 ? 'caja' : 'cajas'} de cápsulas x50`, n * cap.price]); }
+    else { const n = kgFor(cupsM); lines.push([`${n} kg de café en grano`, n * bean.price]); }
+    machine = v.people <= 20 ? 'perla' : v.people <= 150 ? 'klyo' : 'center';
+  } else if (seg === 'horeca') {
+    cupsM = Math.round(v.flow * v.rate / 100) * v.days;
+    const n = kgFor(cupsM); lines.push([`${n} kg de café en grano`, n * bean.price]);
+    machine = 'espresso';
+  } else if (seg === 'panaderia') {
+    cupsM = Math.round(v.flow * v.rate / 100) * v.days;
+    const n = kgFor(cupsM); lines.push([`${n} kg de café en grano`, n * bean.price]);
+    const go = Math.ceil(cupsM * v.togo / 100 / 1000);
+    if (go) lines.push([`${go} ${go === 1 ? 'caja' : 'cajas'} de vasos y tapas`, go * (cup.price + lid.price)]);
+    machine = v.flow * v.rate / 100 <= 60 ? 'perla' : 'totem';
+  } else {
+    cupsM = Math.round(v.flow * v.rate / 100) * v.days;
+    const n = kgFor(cupsM); lines.push([`${n} kg de café en grano`, n * bean.price]);
+    const go = Math.ceil(cupsM / 1000); if (go) lines.push([`${go} ${go === 1 ? 'caja' : 'cajas'} de vasos y tapas`, go * (cup.price + lid.price)]);
+    const cans = Math.ceil(v.rtd * v.days / 24); if (cans) lines.push([`${cans} cajas de latas RTD x24`, cans * rtd.price]);
+    machine = 'totem';
+  }
+  const total = lines.reduce((s, x) => s + x[1], 0);
+  if (seg === 'ocs' && v.people) extra = `${fmt(total / v.people)} por persona al mes`;
+  if (seg === 'horeca' && cupsM) { const coffee = lines[0][1]; extra = `Café: ${fmt(coffee / cupsM)} por taza · ventas netas ≈ ${fmtK(cupsM * v.price / (1 + IVA))} al mes`; }
+  if ((seg === 'panaderia' || seg === 'conveniencia') && cupsM) extra = `${fmt(total / cupsM)} de insumos por café`;
+  return { cupsM, lines, total, machine, extra };
+}
+function renderCalcOut() {
+  const seg = state.calc.seg, r = calcResult(seg, calcVals()), m = MACHINE[r.machine];
+  state.calc.last = { seg, ...r };
+  $('#calc-out').innerHTML = r.cupsM ? `
+    <div class="calc-total"><span>Costo estimado</span><strong>${fmt(r.total)}</strong><small>neto al mes · ${intTxt(r.cupsM)} cafés</small></div>
+    <ul class="calc-lines">${r.lines.map(([t, p]) => `<li><span>${esc(t)}</span><b>${fmt(p)}</b></li>`).join('')}</ul>
+    ${r.extra ? `<p class="calc-extra">${esc(r.extra)}</p>` : ''}
+    <div class="calc-machine">${MACHINE_IMG[m.id] ? `<img src="${MACHINE_IMG[m.id]}" alt="">` : icon('machine')}<div><span>Máquina sugerida</span><strong>${esc(m.name)}</strong><small>${esc(m.mode)}</small></div></div>
+    <p class="calc-note">Estimación referencial: 8 g de café por taza y precios de lista. Tu ejecutivo confirma las condiciones.</p>`
+    : '<p class="calc-note">Ingresa tus datos para ver la estimación.</p>';
+}
+function handleCalcLead(ev) {
+  ev.preventDefault();
+  const email = $('#c-email').value.trim(), e = $('#e-c-email');
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { e.textContent = 'Ingresa un correo válido.'; $('#c-email').focus(); return; }
+  if (!$('#c-optin').checked) { e.textContent = 'Marca la casilla para recibir la estimación.'; $('#c-optin').focus(); return; }
+  e.textContent = '';
+  const r = state.calc.last;
+  LEADS.unshift({ id: 'ld' + Date.now(), company: `Calculadora: ${email.split('@')[1]}`, contact: email.toLowerCase(), email: email.toLowerCase(), seg: r.seg, region: '', origin: $('#r-origen').value,
+    created: TODAY_ISO, isNew: true, exec: '', chat: [], calc: `${fmt(r.total)} al mes, ${intTxt(r.cupsM)} cafés, ${MACHINE[r.machine].name}`, sig: { canal: true, calculadora: true } });
+  state.mktNotifs.unshift({ t: `Calculadora: ${email} estimó ${fmt(r.total)} al mes (${SEGMENTS[r.seg].name}). Recibe la propuesta por correo.`, d: TODAY_ISO, read: false });
+  $('#calc-lead').hidden = true;
+  const done = $('#calc-done'); done.hidden = false;
+  done.innerHTML = `${icon('check')}<div><strong>Te enviamos la estimación a ${esc(email)}.</strong><button type="button" class="btn btn-primary btn-block" data-action="calc-quote" style="margin-top:10px">Cotizar con este resultado</button></div>`;
+}
+function calcQuote() {
+  const r = state.calc.last; if (!r) return;
+  state.visitor.calc = `${fmt(r.total)} al mes, ${intTxt(r.cupsM)} cafés`;
+  $('#r-tipo').value = r.seg; setMachine(r.machine); syncForm(); renderMachineHighlight();
+  if (regStep() !== 1) setRegStep(1);
+  scrollToId('registro');
+  setTimeout(() => $('#r-nombre').focus({ preventScroll: true }), 400);
+}
+
+/* ---------- Cookies (Ley N° 21.719): consentimiento previo, granular y revocable ---------- */
+const COOKIE_KEY = 'mc-cookies';
+function cookieChoice() { try { return JSON.parse(localStorage.getItem(COOKIE_KEY) || 'null'); } catch (e) { return null; } }
+function saveCookies(analytics, marketing) {
+  try { localStorage.setItem(COOKIE_KEY, JSON.stringify({ necesarias: true, analytics, marketing, fecha: new Date().toISOString() })); } catch (e) { /* sin almacenamiento */ }
+  $('#cookie-bar').hidden = true; closeDialog();
+  toast(analytics || marketing ? 'Preferencias de cookies guardadas' : 'Solo usaremos cookies necesarias');
+}
+function openCookieSettings() {
+  const c = cookieChoice() || {};
+  openDialog(`${sheetHead('Configurar cookies', 'Puedes cambiar tu decisión cuando quieras')}
+    <div class="ck-list">
+      <label class="ck-row"><span><strong>Necesarias</strong><small>Sesión, seguridad y carrito. Siempre activas.</small></span><input type="checkbox" checked disabled></label>
+      <label class="ck-row"><span><strong>Medición</strong><small>Visitas y uso de la página, para mejorarla.</small></span><input type="checkbox" id="ck-an" ${c.analytics ? 'checked' : ''}></label>
+      <label class="ck-row"><span><strong>Publicidad</strong><small>Origen de campañas (Google, LinkedIn y Meta).</small></span><input type="checkbox" id="ck-mk" ${c.marketing ? 'checked' : ''}></label>
+    </div>
+    <button class="btn btn-primary btn-block" data-action="cookie-save" style="margin-top:14px">Guardar preferencias</button>`);
 }
 
 /* ---------- Formulario dinámico de registro y cotización ---------- */
@@ -2706,7 +2985,8 @@ function handleQuoteRequest(f) {
     id: 'ld' + Date.now(), company: `${v('nombre')} (empresa por confirmar)`, contact: v('nombre'), seg, region, origin: v('origen'),
     created: TODAY_ISO, isNew: true, chat: state.visitor.chat.slice(), machine: state.visitor.machine,
     exec: EXECS[Object.keys(SEGMENTS).indexOf(seg) % EXECS.length], // una cotización pasa directo a Comercial
-    sig: { canal: true, zona: region === 'RM' || region === 'VAL', comodato: state.visitor.viewedMachines || chatSignals.has('comodato'), instalacion: true },
+    calc: state.visitor.calc || '',
+    sig: { canal: true, zona: region === 'RM' || region === 'VAL', comodato: state.visitor.viewedMachines || chatSignals.has('comodato'), instalacion: true, calculadora: !!state.visitor.calc },
   };
   LEADS.unshift(lead);
   state.mktNotifs.unshift({ t: `Solicitud de cotización: ${v('nombre')} (${SEGMENTS[seg].name}, ${lead.origin}). Asignada a ${lead.exec}: responder antes de 24 h hábiles.`, d: TODAY_ISO, read: false });
@@ -2862,25 +3142,27 @@ function loginMkt() { state.role = 'mkt'; state.accId = null; $('#login-form') &
    14. POLÍTICA DE EMPRESA Y USO DE INFORMACIÓN
    ===================================================================== */
 const LEGAL = [
-  ['Quiénes somos', 'Marley Coffee Chile SpA («Marley Coffee») es responsable de los datos que entregas en este sitio, en el portal B2B, en el chat y por nuestros canales de atención. Contacto: privacidad@marleycoffee.cl.'],
-  ['Qué datos recopilamos', 'Datos de tu empresa (RUT, razón social, rubro, tamaño, región y direcciones), datos de contacto de las personas usuarias (nombre, cargo, correo y teléfono), datos de compra y pago (pedidos, facturas y condiciones comerciales), uso del portal (páginas visitadas, productos agregados y avance en la Academy) y las conversaciones con el asistente del sitio. No guardamos números de tarjeta: los pagos los procesa Transbank.'],
-  ['Para qué los usamos', 'Para crear y validar tu cuenta, cotizar e instalar máquinas, procesar pedidos, emitir facturas electrónicas ante el SII, coordinar despachos y soporte técnico, capacitar a tu equipo y enviarte recomendaciones de reposición. También para mejorar el servicio con estadísticas agregadas.'],
-  ['Puntaje comercial (lead scoring)', 'Para priorizar el contacto comercial, asignamos a cada empresa un puntaje automático según su perfil (rubro, tamaño, zona) y su actividad (por ejemplo, revisar máquinas o solicitar una instalación). El puntaje solo ordena la atención: no se usa para negar el servicio ni para fijar precios. Puedes pedir que no se aplique.'],
+  ['Quiénes somos', 'Comercial Dicalla SpA, que opera Marley Coffee en Chile («Marley Coffee»), es responsable de los datos personales que entregas en este sitio, en el portal B2B, en el chat y por nuestros canales de atención. Contacto para privacidad: privacidad@marleycoffee.cl.'],
+  ['Marco legal', 'Tratamos tus datos conforme a la Ley N° 19.628 sobre protección de la vida privada, modificada por la Ley N° 21.719, vigente desde el 1 de diciembre de 2026, que crea la Agencia de Protección de Datos Personales.'],
+  ['Qué datos recopilamos', 'Datos de tu empresa (RUT, razón social, rubro, tamaño, región y direcciones), datos de contacto de las personas usuarias (nombre, cargo, correo y teléfono), datos de compra y pago (pedidos, facturas y condiciones comerciales), los datos que ingresas en la calculadora de consumo y el uso del portal (páginas visitadas, productos agregados y avance en Marley Academy). No pedimos datos sensibles.'],
+  ['Para qué los usamos y con qué base legal', 'Con tu consentimiento: responder cotizaciones, enviarte la estimación de la calculadora, el boletín y comunicaciones comerciales, y usar cookies de medición y publicidad. Para ejecutar el contrato: crear y validar tu cuenta, procesar pedidos, coordinar despachos, instalación y soporte técnico. Por obligación legal: emitir facturas electrónicas ante el SII. Por interés legítimo: la seguridad del portal y estadísticas agregadas para mejorar el servicio.'],
+  ['Puntaje comercial y decisiones automatizadas', 'Para priorizar el contacto comercial asignamos a cada empresa un puntaje automático según su perfil (rubro, tamaño, zona) y su actividad (por ejemplo, revisar máquinas, usar la calculadora o pedir una cotización). El puntaje solo ordena la atención: no se usa para negar el servicio ni para fijar precios. Puedes pedir que una persona revise tu caso y oponerte a este tratamiento.'],
   ['Validación de empresas', 'Verificamos la existencia y los datos de tu empresa con fuentes públicas, como el SII, en un plazo de hasta 5 días hábiles. Si no podemos validarla, te avisaremos y podrás corregir la información.'],
-  ['Con quién los compartimos', 'Solo con proveedores que nos ayudan a operar el servicio: medios de pago, transporte y despacho, servicio técnico, facturación electrónica y alojamiento de datos. Todos están obligados por contrato a usar los datos solo para ese fin. No vendemos ni arrendamos tus datos.'],
-  ['Comunicaciones', 'Te enviaremos avisos de tus pedidos y cuenta. Los correos y mensajes comerciales son opcionales y puedes desactivarlos en Mi cuenta o con el enlace de cada envío.'],
-  ['Cuánto tiempo los guardamos', 'Mientras tu cuenta esté activa y luego por los plazos que exige la ley, por ejemplo los tributarios para las facturas. Los datos de leads que no crean cuenta se eliminan a los 24 meses sin actividad.'],
-  ['Tus derechos', 'Puedes solicitar acceso, rectificación, supresión, oposición, portabilidad y bloqueo de tus datos, conforme a la Ley N° 19.628 sobre protección de la vida privada y sus modificaciones. Escríbenos a privacidad@marleycoffee.cl; respondemos en un máximo de 15 días hábiles.'],
-  ['Seguridad', 'Usamos conexión cifrada, claves personales, accesos por rol (cliente, marketing y administrador) y registros de actividad. Si detectamos un incidente que afecte tus datos, te informaremos.'],
-  ['Cookies', 'Usamos cookies necesarias para que el portal funcione y, con tu autorización, cookies de medición para saber de qué campañas llegan las visitas.'],
-  ['Transparencia comercial', 'Los precios del portal son netos y corresponden a las condiciones vigentes de tu cuenta. El despacho está incluido según tu canal. Las condiciones de comodato y arriendo se informan por escrito antes de instalar una máquina.'],
+  ['Con quién los compartimos', 'Solo con proveedores que nos ayudan a operar el servicio: medios de pago, transporte y despacho, servicio técnico, facturación electrónica (OpenFactura), alojamiento web y envío de correos. Todos están obligados por contrato a usar los datos solo para ese fin. No vendemos ni arrendamos tus datos.'],
+  ['Transferencias internacionales', 'Algunos proveedores, como Amazon Web Services para el envío de correos, pueden almacenar datos fuera de Chile. Solo trabajamos con proveedores que ofrecen garantías adecuadas de protección, según exige la ley.'],
+  ['Comunicaciones', 'Te enviaremos avisos de tus pedidos y cuenta. El boletín y los correos comerciales requieren tu consentimiento y puedes darte de baja en cualquier momento con el enlace de cada envío o en Mi cuenta.'],
+  ['Cuánto tiempo los guardamos', 'Mientras tu cuenta esté activa y luego por los plazos que exige la ley, por ejemplo los tributarios para las facturas. Los datos de leads, suscriptores y de la calculadora que no crean cuenta se eliminan a los 24 meses sin actividad.'],
+  ['Tus derechos', 'Puedes solicitar acceso, rectificación, supresión, oposición, portabilidad y bloqueo de tus datos, y retirar tu consentimiento cuando quieras. Escríbenos a privacidad@marleycoffee.cl: respondemos dentro de 30 días corridos, prorrogables una vez por igual plazo. Si no quedas conforme, puedes reclamar ante la Agencia de Protección de Datos Personales.'],
+  ['Seguridad e incidentes', 'Usamos conexión cifrada, claves personales, accesos por rol (cliente, marketing y administrador) y registros de actividad. Si ocurre un incidente que ponga en riesgo tus datos, lo informaremos a la Agencia de Protección de Datos Personales y a las personas afectadas.'],
+  ['Cookies', 'Las cookies necesarias hacen funcionar el sitio y no requieren autorización. Las de medición (uso de la página) y de publicidad (origen de campañas de Google, LinkedIn y Meta) solo se activan si las aceptas en el aviso de cookies. Puedes cambiar tu decisión en «Configurar cookies», al pie de la página.'],
+  ['Transparencia comercial', 'Los precios del portal son netos y corresponden a las condiciones vigentes de tu cuenta. Los resultados de la calculadora son estimaciones referenciales. Las condiciones de comodato y arriendo se informan por escrito antes de instalar una máquina.'],
 ];
 function renderLegal() {
   setMeta('Política de empresa y uso de información | Marley Coffee', 'Cómo Marley Coffee recopila, usa y protege los datos de las empresas y personas usuarias del portal B2B.');
   $('#legal-body').innerHTML = `
     <p class="legal-kicker">${icon('shield')} Transparencia y privacidad</p>
     <h1>Política de empresa y uso de información</h1>
-    <p class="muted">Vigente desde el 6 de octubre de 2026.</p>
+    <p class="muted">Actualizada según la Ley N° 21.719, vigente desde el 1 de diciembre de 2026.</p>
     <nav class="legal-toc" aria-label="Contenido"><ol>${LEGAL.map(([t], i) => `<li><button type="button" class="btn-link" data-action="legal-jump" data-i="${i}">${esc(t)}</button></li>`).join('')}</ol></nav>
     ${LEGAL.map(([t, p], i) => `<section id="legal-${i}"><h2>${i + 1}. ${esc(t)}</h2><p>${esc(p)}</p></section>`).join('')}
     <div class="notice info" style="margin-top:28px"><span>¿Quieres ejercer tus derechos o tienes dudas? Escríbenos a <strong>privacidad@marleycoffee.cl</strong>.</span></div>
@@ -4394,6 +4676,12 @@ document.addEventListener('click', (e) => {
     case 'chat-opt': chatChoose(d.to, el.textContent.trim()); break;
     case 'demo-fill': fillDemo(); break;
     case 'reg-later': regLater(); break;
+    case 'calc-seg': state.calc.seg = d.seg; renderCalcForm(); { const t = $(`[data-action="calc-seg"][data-seg="${d.seg}"]`); if (t) t.focus(); } break;
+    case 'calc-quote': calcQuote(); break;
+    case 'cookie-accept': saveCookies(true, true); break;
+    case 'cookie-reject': saveCookies(false, false); break;
+    case 'cookie-settings': openCookieSettings(); break;
+    case 'cookie-save': saveCookies($('#ck-an').checked, $('#ck-mk').checked); break;
     case 'proto-menu': openDialog(`${sheetHead('Vistas del prototipo', 'Entra directo a cada vista sin usuario ni clave')}
       <div class="proto-views">
         <p class="proto-h">Vista cliente</p>
@@ -4502,6 +4790,10 @@ document.addEventListener('input', (e) => {
 });
 $('#reg-form').addEventListener('submit', handleRegister);
 $('#news-form').addEventListener('submit', handleNewsletter);
+$('#calc-lead').addEventListener('submit', handleCalcLead);
+$('#calc-form').addEventListener('input', renderCalcOut);
+$('#calc-form').addEventListener('change', renderCalcOut);
+if (!cookieChoice()) $('#cookie-bar').hidden = false;
 { const vEl = document.getElementById('view'); if (vEl) new MutationObserver(decorateView).observe(vEl, { childList: true }); }
 $('#login-form').addEventListener('submit', handleLogin);
 $('#r-rut').addEventListener('blur', (e) => { if (e.target.value) setErr('rut', rutError(e.target.value)); });
