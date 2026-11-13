@@ -1339,19 +1339,7 @@ dialog.sheet.promo-dlg .sheet-inner { padding: 0; }
   .hero-ctas { margin-top: 12px; gap: 8px; }
   .hero-ctas .btn { min-height: 44px; padding: 0 16px; font-size: 15px; }
   .hero-proof { margin-top: 10px; font-size: 12.5px; gap: 4px 12px; }
-  .hero-media img { aspect-ratio: 390 / 330; object-position: center 88%; }
-  /* Cinturón de confianza en pocas líneas */
-  .trust-in { padding: 20px 16px; gap: 14px; }
-  .trust-stats { gap: 12px 10px; }
-  .trust-stats strong { font-size: 22px; }
-  .trust-stats span { font-size: 12px; }
-  .trust-h { display: inline; margin: 0 6px 0 0; font-size: 11px; }
-  .route, .client-types { display: inline; }
-  .route li, .client-types li { display: inline; padding: 0; border: 0; font-size: 12.5px; font-weight: 500; color: rgba(255,255,255,.88); }
-  .route li::before { display: none; }
-  .route li::after, .client-types li::after { content: ' · '; position: static; background: none; width: auto; height: auto; color: var(--yellow); }
-  .route li:last-child::after, .client-types li:last-child::after { content: ''; }
-  .trust-note { font-size: 10.5px; }
+  .hero-media img { aspect-ratio: 390 / 330; object-position: center 60%; }
   /* Beneficios en un solo contenedor, solo títulos */
   .does.does-grid { gap: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 4px 6px; margin-top: 14px; }
   .does.does-grid li { grid-template-columns: 30px 1fr; align-items: center; gap: 8px; padding: 9px 6px; border: 0; border-radius: 0; background: none; }
@@ -1396,6 +1384,34 @@ dialog.sheet.promo-dlg .sheet-inner { padding: 0; }
   .news-ticks { display: none; }
   .calc-total strong { font-size: 26px; }
 }
+
+/* ---- Cinturón de confianza v5.2: bloques destacados, ruta de norte a sur y marcas ---- */
+.trust-block { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); border-radius: 14px; padding: 14px; }
+.trust .trust-h { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 700; color: var(--yellow); text-transform: none; letter-spacing: 0; margin: 0 0 14px; }
+.trust .trust-h .icon { width: 18px; height: 18px; }
+.trust .route { list-style: none; display: grid; grid-template-columns: repeat(5, 1fr); position: relative; overflow: visible; padding: 0; gap: 0; }
+.trust .route::before { content: ''; position: absolute; top: 6px; left: 10%; right: 10%; height: 3px; border-radius: 2px; background: linear-gradient(90deg, var(--green), var(--yellow), var(--red)); }
+.trust .route li { position: relative; display: grid; gap: 2px; justify-items: center; text-align: center; padding: 22px 2px 0; white-space: normal; flex: none; }
+.trust .route li::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 15px; height: 15px; border-radius: 50%; background: var(--black); border: 3px solid var(--yellow); box-shadow: none; }
+.trust .route li::after { display: none; }
+.trust .route b { font-size: 13.5px; color: #fff; }
+.trust .route span { font-size: 11px; color: rgba(255,255,255,.6); line-height: 1.2; }
+.brands { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.brands li { display: grid; place-items: center; min-height: 52px; padding: 8px 6px; border-radius: 10px; background: #fff; color: var(--black); font-weight: 800; font-size: 16px; letter-spacing: -.01em; text-align: center; }
+.brands-more { margin-top: 10px; font-size: 12.5px; color: rgba(255,255,255,.72); }
+@media (max-width: 599px) {
+  .trust-in { padding: 20px 16px; gap: 12px; }
+  .trust-stats { gap: 12px 10px; }
+  .trust-stats strong { font-size: 22px; }
+  .trust-stats span { font-size: 12px; }
+  .trust-block { padding: 12px; }
+  .trust .trust-h { font-size: 14px; margin-bottom: 12px; }
+  .trust .route b { font-size: 11.5px; }
+  .trust .route span { display: none; }
+  .brands li { font-size: 14.5px; min-height: 44px; }
+  .trust-note { font-size: 10.5px; }
+}
+.calc-form .calc-seg { grid-column: 1 / -1; }
 </style>
 </head>
 <body>
@@ -1500,7 +1516,7 @@ dialog.sheet.promo-dlg .sheet-inner { padding: 0; }
       </picture>
     </section>
 
-    <!-- CINTURÓN DE CONFIANZA: trayectoria, tamaño, cobertura y tipos de clientes (cifras del brief del desafío) -->
+    <!-- CINTURÓN DE CONFIANZA: trayectoria, tamaño, cobertura y marcas que han confiado en Marley (cifras del brief) -->
     <section class="trust" aria-labelledby="trust-title">
       <div class="trust-in">
         <h2 id="trust-title" class="sr-only">Marley Coffee en Chile</h2>
@@ -1510,29 +1526,26 @@ dialog.sheet.promo-dlg .sheet-inner { padding: 0; }
           <li><strong>3.390</strong><span>puntos de negocios activos</span></li>
           <li><strong>N.º 1</strong><span>en café en grano en supermercados</span></li>
         </ul>
-        <div class="trust-route" role="group" aria-label="Cobertura de norte a sur">
-          <p class="trust-h">De norte a sur de Chile</p>
+        <div class="trust-block trust-route" role="group" aria-labelledby="route-h">
+          <h3 class="trust-h" id="route-h"><svg class="icon" aria-hidden="true"><use href="#i-truck"/></svg>De norte a sur de Chile</h3>
           <ol class="route">
-            <li>Macrozona norte</li>
-            <li>Valparaíso</li>
-            <li>Región Metropolitana</li>
-            <li>Biobío</li>
-            <li>Zona centro-sur</li>
+            <li><b>Norte</b><span>Macrozona norte</span></li>
+            <li><b>Valparaíso</b><span>V Región</span></li>
+            <li><b>Santiago</b><span>Región Metropolitana</span></li>
+            <li><b>Biobío</b><span>VIII Región</span></li>
+            <li><b>Sur</b><span>Zona centro-sur</span></li>
           </ol>
         </div>
-        <div class="trust-clients">
-          <p class="trust-h">Ya nos eligen</p>
-          <ul class="client-types">
-            <li>Hoteles y restaurantes</li>
-            <li>Cafeterías</li>
-            <li>Oficinas y minería</li>
-            <li>Universidades</li>
-            <li>Centros de entretención</li>
-            <li>Panaderías</li>
-            <li>Estaciones de servicio</li>
+        <div class="trust-block trust-clients" role="group" aria-labelledby="clients-h">
+          <h3 class="trust-h" id="clients-h"><svg class="icon" aria-hidden="true"><use href="#i-building"/></svg>Han confiado en Marley</h3>
+          <ul class="brands">
+            <li>Oak Market</li>
+            <li>OXXO</li>
+            <li>Petrobras</li>
           </ul>
+          <p class="brands-more">Y cientos de hoteles, cafeterías, oficinas, universidades y panaderías.</p>
         </div>
-        <p class="trust-note">Marca fundada en 2009 por Rohan Marley. Liderazgo en café en grano según la Fiscalía Nacional Económica (2025).</p>
+        <p class="trust-note">Marca fundada en 2009 por Rohan Marley. Liderazgo en café en grano según la Fiscalía Nacional Económica (2025). Las marcas mencionadas han comercializado Marley Coffee.</p>
       </div>
     </section>
 
@@ -1583,7 +1596,6 @@ dialog.sheet.promo-dlg .sheet-inner { padding: 0; }
         <h2 id="calc-title">¿Cuánto café necesitas?</h2>
         <p class="lede">Estima tu consumo y costo mensual en segundos.</p>
         <div class="calc">
-          <div class="calc-tabs" id="calc-tabs" role="tablist" aria-label="Tipo de negocio"></div>
           <form class="calc-form" id="calc-form" novalidate></form>
           <div class="calc-out" id="calc-out" aria-live="polite"></div>
           <form class="calc-lead" id="calc-lead" novalidate>
@@ -2626,7 +2638,7 @@ function renderLanding(seg) {
   const pick = seg ? PRODUCTS.filter((p) => p.rec.includes(seg)).slice(0, 6)
     : ['grano', 'molido', 'capsulas', 'rtd', 'insumos', 'accesorios'].map((ct) => PRODUCTS.find((p) => p.cat === ct)).filter(Boolean);
   $('#cat-lede').textContent = seg ? `Lo que más piden ${SEGMENTS[seg].peers}. Con tu cuenta ves todo el catálogo.` : 'Con tu cuenta ves todo el catálogo y tus precios.';
-  state.calc = { ...(state.calc || {}), seg: seg || (state.calc && state.calc.seg) || 'ocs' };
+  state.calc = { ...(state.calc || {}), seg: seg || 'ocs' };
   renderCalcForm();
   $('#prod-list').innerHTML = pick.map((p) => `
     <article class="prod">
@@ -2689,9 +2701,12 @@ function calcVals() {
   return v;
 }
 function renderCalcForm() {
+  // La calculadora sigue al rubro de la página. Solo en la página general aparece el selector de tipo de negocio.
   const seg = state.calc.seg, c = CALC[seg];
-  $('#calc-tabs').innerHTML = Object.entries(CALC).map(([k, x]) => `<button type="button" role="tab" class="calc-tab" aria-selected="${k === seg}" data-action="calc-seg" data-seg="${k}">${esc(x.label)}</button>`).join('');
-  $('#calc-form').innerHTML = c.fields.map(([k, label, def, a, b]) => Array.isArray(a)
+  const titles = { ocs: 'tu oficina', horeca: 'tu cafetería o restaurante', panaderia: 'tu panadería', conveniencia: 'tu estación de servicio' };
+  $('#calc-title').textContent = state.seg ? `¿Cuánto café necesita ${titles[seg]}?` : '¿Cuánto café necesitas?';
+  const pickSeg = state.seg ? '' : `<div class="field calc-seg"><label for="cf-seg">Tipo de negocio</label><select class="select" id="cf-seg">${Object.entries(CALC).map(([k, x]) => `<option value="${k}" ${k === seg ? 'selected' : ''}>${esc(x.label)}</option>`).join('')}</select></div>`;
+  $('#calc-form').innerHTML = pickSeg + c.fields.map(([k, label, def, a, b]) => Array.isArray(a)
     ? `<div class="field"><label for="cf-${k}">${label}</label><select class="select" id="cf-${k}" data-k="${k}">${a.map(([val, t]) => `<option value="${val}" ${val === def ? 'selected' : ''}>${t}</option>`).join('')}</select></div>`
     : `<div class="field"><label for="cf-${k}">${label}</label><input class="input" id="cf-${k}" data-k="${k}" type="number" inputmode="numeric" min="${a}" max="${b}" value="${def}"></div>`).join('');
   renderCalcOut();
@@ -4792,7 +4807,7 @@ $('#reg-form').addEventListener('submit', handleRegister);
 $('#news-form').addEventListener('submit', handleNewsletter);
 $('#calc-lead').addEventListener('submit', handleCalcLead);
 $('#calc-form').addEventListener('input', renderCalcOut);
-$('#calc-form').addEventListener('change', renderCalcOut);
+$('#calc-form').addEventListener('change', (e) => { if (e.target.id === 'cf-seg') { state.calc.seg = e.target.value; renderCalcForm(); $('#cf-seg').focus(); } else renderCalcOut(); });
 if (!cookieChoice()) $('#cookie-bar').hidden = false;
 { const vEl = document.getElementById('view'); if (vEl) new MutationObserver(decorateView).observe(vEl, { childList: true }); }
 $('#login-form').addEventListener('submit', handleLogin);
