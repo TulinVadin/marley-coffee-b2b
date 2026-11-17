@@ -2768,8 +2768,15 @@ function handleCalcLead(ev) {
   state.mktNotifs.unshift({ t: `Calculadora: ${email} estimó ${fmt(r.total)} al mes (${SEGMENTS[r.seg].name}). Recibe la propuesta por correo.`, d: TODAY_ISO, read: false });
   $('#calc-lead').hidden = true;
   const done = $('#calc-done'); done.hidden = false;
-  done.innerHTML = `${icon('check')}<div><strong>¡Listo! Te enviaremos tu costo estimado mensual a ${esc(email)}.</strong><p class="small" style="margin-top:4px">Revisa tu bandeja de entrada en unos minutos. Si no lo ves, busca en la carpeta de spam.</p></div>`;
+  done.innerHTML = `${icon('check')}<div><strong>¡Listo! Te enviaremos tu costo estimado mensual a ${esc(email)}.</strong><p class="small" style="margin-top:4px">Revisa tu bandeja de entrada en unos minutos. Si no lo ves, busca en la carpeta de spam.</p><button type="button" class="btn btn-ghost" data-action="calc-reset" style="margin-top:10px">${icon('repeat')} Calcular de nuevo</button></div>`;
   $('#calc-form').hidden = true;
+}
+function calcReset() {
+  // Vuelve a mostrar la calculadora vacía para corregir datos o evaluar otro negocio. Conserva el correo y el consentimiento.
+  $('#calc-done').hidden = true; $('#calc-done').innerHTML = '';
+  $('#calc-form').hidden = false; $('#calc-lead').hidden = false; $('#e-c-email').textContent = '';
+  renderCalcForm();
+  const first = $('#calc-form select, #calc-form input'); if (first) first.focus();
 }
 function calcQuote() {
   const r = state.calc.last; if (!r) return;
@@ -4696,6 +4703,7 @@ document.addEventListener('click', (e) => {
     case 'reg-later': regLater(); break;
     case 'calc-seg': state.calc.seg = d.seg; renderCalcForm(); { const t = $(`[data-action="calc-seg"][data-seg="${d.seg}"]`); if (t) t.focus(); } break;
     case 'calc-quote': calcQuote(); break;
+    case 'calc-reset': calcReset(); break;
     case 'cookie-accept': saveCookies(true, true); break;
     case 'cookie-reject': saveCookies(false, false); break;
     case 'cookie-settings': openCookieSettings(); break;

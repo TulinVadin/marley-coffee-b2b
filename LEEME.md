@@ -37,7 +37,7 @@
 
 ## Novedades de la v5.3 (17-11-2026)
 - **Cinturón de confianza:** «Han confiado en Marley» muestra OK Market, OXXO y Subway.
-- **Calculadora con lógica inbound:** ya no muestra el costo en pantalla. El título se enfoca en el costo («¿Cuánto le costaría el café a tu oficina al mes?»), los campos parten vacíos (con ejemplos) y el correo es obligatorio. Al enviar aparece «Te enviaremos tu costo estimado mensual a tu correo». Se quitó «Cotizar con este resultado». El lead entra a marketing con el costo calculado (+10 en lead scoring).
+- **Calculadora con lógica inbound:** ya no muestra el costo en pantalla. El título se enfoca en el costo («¿Cuánto le costaría el café a tu oficina al mes?»), los campos parten vacíos (con ejemplos) y el correo es obligatorio. Al enviar aparece «Te enviaremos tu costo estimado mensual a tu correo». Se quitó «Cotizar con este resultado». El mensaje final trae el botón «Calcular de nuevo», que limpia la calculadora para corregir datos o evaluar otro negocio. El lead entra a marketing con el costo calculado (+10 en lead scoring).
 
 ## Usuarios de prueba
 - Clientes: el RUT de cada cuenta demo (se ven en la pantalla de ingreso).
