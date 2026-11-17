@@ -608,9 +608,9 @@ dialog.sheet::backdrop { background: rgba(0, 0, 0, .6); }
 .account-grid { display: grid; gap: 16px; }
 
 /* Academy */
-.route { margin-top: 20px; }
-.route > h2 { font-size: 18px; margin-bottom: 4px; }
-.route > p { font-size: 14px; color: var(--ink-3); margin-bottom: 12px; }
+.acad-route { margin-top: 20px; }
+.acad-route > h2 { font-size: 18px; margin-bottom: 4px; }
+.acad-route > p { font-size: 14px; color: var(--ink-3); margin-bottom: 12px; }
 .modules { display: grid; gap: 10px; }
 .module { display: grid; grid-template-columns: 44px 1fr auto; gap: 12px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px; text-align: left; width: 100%; }
 .module:hover { border-color: var(--ink); }
@@ -3821,9 +3821,9 @@ function renderAcademy() {
       <div><div class="bar"><span style="width:${pct}%"></span></div><p class="small" style="margin-top:6px">${done.length} de ${ACADEMY.length} módulos aprobados en tu cuenta${people.length ? ` · certificados: ${people.map(esc).join(', ')}` : ''}</p></div>
     </section>
     <div class="notice info" style="margin-top:16px"><span>Cada máquina tiene un código QR que abre su protocolo de limpieza en esta sección.</span></div>
-    <section class="route" aria-labelledby="r1"><h2 id="r1">Uso del portal</h2><p>Guías cortas para resolver todo sin llamar a tu ejecutivo.</p>
+    <section class="acad-route" aria-labelledby="r1"><h2 id="r1">Uso del portal</h2><p>Guías cortas para resolver todo sin llamar a tu ejecutivo.</p>
       <div class="modules">${ACADEMY.filter((m) => m.route === 'portal').map(mod).join('')}</div></section>
-    <section class="route" aria-labelledby="r2"><h2 id="r2">Máquina y producto</h2><p>Limpieza, mantención, preparación e insumos.${['panaderia', 'horeca'].includes(a.seg) ? ' Los módulos de limpieza son prioritarios para tu negocio.' : ''}</p>
+    <section class="acad-route" aria-labelledby="r2"><h2 id="r2">Máquina y producto</h2><p>Limpieza, mantención, preparación e insumos.${['panaderia', 'horeca'].includes(a.seg) ? ' Los módulos de limpieza son prioritarios para tu negocio.' : ''}</p>
       <div class="modules">${ACADEMY.filter((m) => m.route === 'maquina').map(mod).join('')}</div></section>`;
 }
 function openModule(n, step = 'learn') {
