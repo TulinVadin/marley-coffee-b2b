@@ -35,6 +35,10 @@
 - **Aviso de cookies** con consentimiento por categoría (necesarias, medición y publicidad), revocable desde «Configurar cookies» al pie.
 - **Política de privacidad actualizada a la Ley N° 21.719** (vigente desde el 1-12-2026): responsable Comercial Dicalla SpA, bases legales, decisiones automatizadas (lead scoring), transferencias internacionales, plazos de respuesta y reclamo ante la Agencia de Protección de Datos Personales.
 
+## Novedades de la v5.3 (17-11-2026)
+- **Cinturón de confianza:** «Han confiado en Marley» muestra OK Market, OXXO y Subway.
+- **Calculadora con lógica inbound:** ya no muestra el costo en pantalla. El título se enfoca en el costo («¿Cuánto le costaría el café a tu oficina al mes?»), los campos parten vacíos (con ejemplos) y el correo es obligatorio. Al enviar aparece «Te enviaremos tu costo estimado mensual a tu correo». Se quitó «Cotizar con este resultado». El lead entra a marketing con el costo calculado (+10 en lead scoring).
+
 ## Usuarios de prueba
 - Clientes: el RUT de cada cuenta demo (se ven en la pantalla de ingreso).
 - Marketing: `marketing@marleycoffee.cl`

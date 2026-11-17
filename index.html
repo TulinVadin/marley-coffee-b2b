@@ -1284,7 +1284,9 @@ dialog.sheet.promo-dlg .sheet-inner { padding: 0; }
 .calc-note { font-size: 11.5px; color: var(--ink-3); }
 .calc-lead { display: grid; gap: 8px; border-top: 1px dashed var(--line); padding-top: 12px; }
 .calc-lead[hidden] { display: none; }
-.calc-lead-h { font-size: 14px; font-weight: 700; }
+.calc-lead-h { font-size: 15px; font-weight: 700; }
+.calc-lead-sub { font-size: 13px; color: var(--ink-2); margin-top: -4px; }
+.calc-form[hidden] { display: none; }
 .calc-lead-row { display: grid; grid-template-columns: 1fr auto; gap: 8px; }
 .calc-lead .check span { font-size: 12.5px; }
 .calc-done { display: flex; gap: 10px; align-items: flex-start; padding: 12px; border-radius: var(--r); background: var(--ok-bg); font-size: 14px; }
@@ -1294,8 +1296,10 @@ dialog.sheet.promo-dlg .sheet-inner { padding: 0; }
   .calc { grid-template-columns: 1.1fr 1fr; gap: 18px 28px; padding: 22px; }
   .calc-tabs { grid-column: 1 / -1; margin: 0; padding: 0; }
   .calc-form { align-content: start; }
-  .calc-out { grid-column: 2; grid-row: 2 / span 3; }
-  .calc-lead, .calc-done { grid-column: 1; }
+  .calc-form { grid-column: 1; grid-row: 1; }
+  .calc-lead, .calc-done { grid-column: 2; grid-row: 1; align-self: start; border-top: 0; padding-top: 0; }
+  .calc-lead { border-left: 1px dashed var(--line); padding-left: 24px; }
+  .calc-done { grid-column: 1 / -1; }
 }
 
 /* ---- Aviso de cookies ---- */
@@ -1539,9 +1543,9 @@ dialog.sheet.promo-dlg .sheet-inner { padding: 0; }
         <div class="trust-block trust-clients" role="group" aria-labelledby="clients-h">
           <h3 class="trust-h" id="clients-h"><svg class="icon" aria-hidden="true"><use href="#i-building"/></svg>Han confiado en Marley</h3>
           <ul class="brands">
-            <li>Oak Market</li>
+            <li>OK Market</li>
             <li>OXXO</li>
-            <li>Petrobras</li>
+            <li>Subway</li>
           </ul>
           <p class="brands-more">Y cientos de hoteles, cafeterías, oficinas, universidades y panaderías.</p>
         </div>
@@ -1593,21 +1597,20 @@ dialog.sheet.promo-dlg .sheet-inner { padding: 0; }
     <section class="l-section-wrap tone-cream" id="calculadora" aria-labelledby="calc-title">
       <div class="l-section">
         <p class="kicker">Calculadora</p>
-        <h2 id="calc-title">¿Cuánto café necesitas?</h2>
-        <p class="lede">Estima tu consumo y costo mensual en segundos.</p>
+        <h2 id="calc-title">¿Cuánto te costaría el café al mes?</h2>
+        <p class="lede">Completa los datos de tu negocio y te enviamos el costo estimado a tu correo.</p>
         <div class="calc">
           <form class="calc-form" id="calc-form" novalidate></form>
-          <div class="calc-out" id="calc-out" aria-live="polite"></div>
           <form class="calc-lead" id="calc-lead" novalidate>
-            <p class="calc-lead-h">Recibe esta estimación en tu correo</p>
+            <p class="calc-lead-h">¿A qué correo te enviamos tu costo estimado?</p>
+            <p class="calc-lead-sub">Gratis y sin compromiso. Incluye el costo neto mensual, los insumos y la máquina sugerida.</p>
             <div class="calc-lead-row">
               <label class="sr-only" for="c-email">Correo de la empresa</label>
               <input class="input" id="c-email" name="email" type="email" autocomplete="email" placeholder="correo@empresa.cl" aria-describedby="e-c-email">
-              <button class="btn btn-dark" type="submit">Enviar</button>
-            </div>
-            <label class="check"><input type="checkbox" id="c-optin" name="optin"> <span>Acepto que Marley Coffee me contacte por correo sobre esta estimación.</span></label>
+              </div>
+            <label class="check"><input type="checkbox" id="c-optin" name="optin"> <span>Acepto recibir la estimación y que Marley Coffee me contacte por correo sobre ella.</span></label>
             <span class="field-error" id="e-c-email"></span>
-            <button class="btn btn-primary btn-block" type="button" data-action="calc-quote">Cotizar con este resultado</button>
+            <button class="btn btn-primary btn-block" type="submit">Enviarme mi costo estimado</button>
           </form>
           <div class="calc-done" id="calc-done" role="status" hidden></div>
         </div>
@@ -2704,11 +2707,11 @@ function renderCalcForm() {
   // La calculadora sigue al rubro de la página. Solo en la página general aparece el selector de tipo de negocio.
   const seg = state.calc.seg, c = CALC[seg];
   const titles = { ocs: 'tu oficina', horeca: 'tu cafetería o restaurante', panaderia: 'tu panadería', conveniencia: 'tu estación de servicio' };
-  $('#calc-title').textContent = state.seg ? `¿Cuánto café necesita ${titles[seg]}?` : '¿Cuánto café necesitas?';
+  $('#calc-title').textContent = state.seg ? `¿Cuánto le costaría el café a ${titles[seg]} al mes?` : '¿Cuánto te costaría el café al mes?';
   const pickSeg = state.seg ? '' : `<div class="field calc-seg"><label for="cf-seg">Tipo de negocio</label><select class="select" id="cf-seg">${Object.entries(CALC).map(([k, x]) => `<option value="${k}" ${k === seg ? 'selected' : ''}>${esc(x.label)}</option>`).join('')}</select></div>`;
   $('#calc-form').innerHTML = pickSeg + c.fields.map(([k, label, def, a, b]) => Array.isArray(a)
     ? `<div class="field"><label for="cf-${k}">${label}</label><select class="select" id="cf-${k}" data-k="${k}">${a.map(([val, t]) => `<option value="${val}" ${val === def ? 'selected' : ''}>${t}</option>`).join('')}</select></div>`
-    : `<div class="field"><label for="cf-${k}">${label}</label><input class="input" id="cf-${k}" data-k="${k}" type="number" inputmode="numeric" min="${a}" max="${b}" value="${def}"></div>`).join('');
+    : `<div class="field"><label for="cf-${k}">${label}</label><input class="input" id="cf-${k}" data-k="${k}" type="number" inputmode="numeric" min="${a}" max="${b}" placeholder="Ej.: ${def}" required></div>`).join('');
   renderCalcOut();
 }
 function calcResult(seg, v) {
@@ -2744,29 +2747,29 @@ function calcResult(seg, v) {
   return { cupsM, lines, total, machine, extra };
 }
 function renderCalcOut() {
-  const seg = state.calc.seg, r = calcResult(seg, calcVals()), m = MACHINE[r.machine];
+  // El resultado no se muestra en pantalla: se calcula y se envía al correo (valor gratuito a cambio del dato).
+  const seg = state.calc.seg, r = calcResult(seg, calcVals());
   state.calc.last = { seg, ...r };
-  $('#calc-out').innerHTML = r.cupsM ? `
-    <div class="calc-total"><span>Costo estimado</span><strong>${fmt(r.total)}</strong><small>neto al mes · ${intTxt(r.cupsM)} cafés</small></div>
-    <ul class="calc-lines">${r.lines.map(([t, p]) => `<li><span>${esc(t)}</span><b>${fmt(p)}</b></li>`).join('')}</ul>
-    ${r.extra ? `<p class="calc-extra">${esc(r.extra)}</p>` : ''}
-    <div class="calc-machine">${MACHINE_IMG[m.id] ? `<img src="${MACHINE_IMG[m.id]}" alt="">` : icon('machine')}<div><span>Máquina sugerida</span><strong>${esc(m.name)}</strong><small>${esc(m.mode)}</small></div></div>
-    <p class="calc-note">Estimación referencial: 8 g de café por taza y precios de lista. Tu ejecutivo confirma las condiciones.</p>`
-    : '<p class="calc-note">Ingresa tus datos para ver la estimación.</p>';
 }
 function handleCalcLead(ev) {
   ev.preventDefault();
   const email = $('#c-email').value.trim(), e = $('#e-c-email');
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { e.textContent = 'Ingresa un correo válido.'; $('#c-email').focus(); return; }
   if (!$('#c-optin').checked) { e.textContent = 'Marca la casilla para recibir la estimación.'; $('#c-optin').focus(); return; }
-  e.textContent = '';
   const r = state.calc.last;
+  const empty = $$('#calc-form input[data-k]').find((i) => !(Number(i.value) > 0));
+  if (empty || !r || !r.cupsM) {
+    e.textContent = 'Completa los datos de tu negocio para calcular tu costo.';
+    if (empty) empty.focus(); return;
+  }
+  e.textContent = '';
   LEADS.unshift({ id: 'ld' + Date.now(), company: `Calculadora: ${email.split('@')[1]}`, contact: email.toLowerCase(), email: email.toLowerCase(), seg: r.seg, region: '', origin: $('#r-origen').value,
     created: TODAY_ISO, isNew: true, exec: '', chat: [], calc: `${fmt(r.total)} al mes, ${intTxt(r.cupsM)} cafés, ${MACHINE[r.machine].name}`, sig: { canal: true, calculadora: true } });
   state.mktNotifs.unshift({ t: `Calculadora: ${email} estimó ${fmt(r.total)} al mes (${SEGMENTS[r.seg].name}). Recibe la propuesta por correo.`, d: TODAY_ISO, read: false });
   $('#calc-lead').hidden = true;
   const done = $('#calc-done'); done.hidden = false;
-  done.innerHTML = `${icon('check')}<div><strong>Te enviamos la estimación a ${esc(email)}.</strong><button type="button" class="btn btn-primary btn-block" data-action="calc-quote" style="margin-top:10px">Cotizar con este resultado</button></div>`;
+  done.innerHTML = `${icon('check')}<div><strong>¡Listo! Te enviaremos tu costo estimado mensual a ${esc(email)}.</strong><p class="small" style="margin-top:4px">Revisa tu bandeja de entrada en unos minutos. Si no lo ves, busca en la carpeta de spam.</p></div>`;
+  $('#calc-form').hidden = true;
 }
 function calcQuote() {
   const r = state.calc.last; if (!r) return;
